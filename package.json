@@ -1,0 +1,24 @@
+{
+  "name": "asy-td5",
+  "version": "1.0.0",
+  "description": "TD5 de ASY : Scrapping",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreimert/asy-td5.git"
+  },
+  "author": "Damien Reimert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreimert/asy-td5/issues"
+  },
+  "homepage": "https://github.com/dreimert/asy-td5#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request-promise": "^4.2.2",
+    "tika-server": "^1.1.0"
+  }
+}
