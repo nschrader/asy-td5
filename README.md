@@ -4,7 +4,7 @@ TD5 du cours d'Architecture des Systèmes Informatique et de l'Information.
 
 L'objectif de ce TD est de manipuler des données comme "dans la vrai vie", en m'inspirant de situations réellement rencontrées dans mon travail. On va voir aussi l'architecture que l'on peut mettre en place pour cela.
 
-Le ministère de l'enseignement supérieur et de la recherche a lancé *le chantier compétences*. Officiellement pour permettre une meilleure lecture de l'offre de formation et pour mieux qualifier les compétences des étudiants. Officieusement, c'est une action pour surcharger les enseignants, enseignant-chercheurs et l'administration des établissements d'enseignement supérieur.
+Le ministère de l'enseignement supérieur et de la recherche a lancé *le chantier compétences* pour permettre une meilleure lecture de l'offre de formation et pour mieux qualifier les compétences des étudiants. Mais cela demande du temps aux enseignants, enseignant-chercheurs et l'administration des établissements d'enseignement supérieur.
 
 Mais l'INSA possède une cellule secrète qui agit dans ce genre de cas et vous en faites parti ! Vous devez agir.
 
