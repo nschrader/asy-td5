@@ -42,6 +42,7 @@ Vos yeux. Regardez si les données stockées correspondent à ce qui est indiqu�
 * Commencer par télécharger un pdf.
 * Transformez ce pdf en texte via Tika.
 * Analysez le texte pour en extraire les informations voulues. Les [RegExp](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/RegExp) sont votre amie.
+    * `/CODE : ([^\n]*)/` : extrait le code du cours.
 * Télécharger et analyser une page de formation.
 * Extraire toutes les UEs d'une formation.
 * Extraire toutes les UEs de l'INSA.
