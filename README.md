@@ -16,7 +16,12 @@ Si ça n'est pas fait, voir le TD1 : https://github.com/dreimert/dia-td1
 
 L'INSA a déjà un catalogue de formations que l'on peut trouver à l'adresse https://www.insa-lyon.fr/fr/formation/diplomes/ING. Cette page liste les formations de l'INSA puis via un lien pour chaque formation, on accède à la liste des UEs de celle-ci. Pour chaque UE, un *pdf* détaillant la formation.
 
-L'objectif est d'extraire du site et des pdfs les informations de chaque UE et de constituer une base de données.
+L'objectif est d'extraire du site et des pdfs les informations de chaque cours et de constituer une base de données. Dans cette base, on aimerait :
+
+* Le code. Exemple : TC-4-I-ASY.
+* Le nombre d'ETCS.
+* Le volume horaire de cours / TD / TP / Project / Travail personnel.
+* Plus tard, le contact et son mail
 
 ## Implémentation
 
