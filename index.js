@@ -38,6 +38,8 @@ ts.start().then(() => {
     // console.log("pdf", pdf);
     return ts.queryText(pdf).then((data) => {
       // console.log(data)
+      let code = /CODE : ([^\n]*)/.exec(data)[1];
+      // console.log("Code :", code);
     });
   })
 }).then(() => {
