@@ -33,15 +33,20 @@ ts.on("debug", (msg) => {
 
 // Lance le serveur tika
 ts.start().then(() => {
-  // Extraction du texte.
-  return pdf.then((pdf) => {
-    // console.log("pdf", pdf);
-    return ts.queryText(pdf).then((data) => {
-      // console.log(data)
-      let code = /CODE : ([^\n]*)/.exec(data)[1];
-      // console.log("Code :", code);
-    });
-  })
+  // Pour tous les éléments du tableau
+  const listDePdf = [pdf];
+  // Pour chaque pdf, on fait des trucs
+  return Promise.all(listDePdf.map((elem) => {
+    // Extraction du texte.
+    return elem.then((pdf) => {
+      // console.log("pdf", pdf);
+      return ts.queryText(pdf).then((data) => {
+        // console.log(data)
+        let code = /CODE : ([^\n]*)/.exec(data)[1];
+        // console.log("Code :", code);
+      });
+    })
+  }))
 }).then(() => {
   return ts.stop()
 }).catch((err) => {
