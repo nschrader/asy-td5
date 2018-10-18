@@ -3,7 +3,7 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 
 // Télécharger une page HTML
-const html = rp('https://www.insa-lyon.fr/fr/formation/parcours/729/4/1')
+const htmlPromise = rp('https://www.insa-lyon.fr/fr/formation/parcours/729/4/1')
 .then(function (htmlString) {
   // console.log(htmlString);
   return htmlString;
@@ -13,7 +13,7 @@ const html = rp('https://www.insa-lyon.fr/fr/formation/parcours/729/4/1')
 });
 
 // Télécharger un pdf
-const pdf = rp({
+const pdfPromise = rp({
   url: 'http://planete.insa-lyon.fr/scolpeda/f/ects?id=36736&_lang=fr',
   encoding: null
 }).then(function (pdf) {
@@ -34,9 +34,9 @@ ts.on("debug", (msg) => {
 // Lance le serveur tika
 ts.start().then(() => {
   // Pour tous les éléments du tableau
-  const listDePdf = [pdf];
+  const listDePdfPromise = [pdfPromise];
   // Pour chaque pdf, on fait des trucs
-  return Promise.all(listDePdf.map((elem) => {
+  return Promise.all(listDePdfPromise.map((elem) => {
     // Extraction du texte.
     return elem.then((pdf) => {
       // console.log("pdf", pdf);
@@ -56,10 +56,23 @@ ts.start().then(() => {
 // Analyser du html
 // DOc : https://github.com/cheeriojs/cheerio
 // ou encore : https://github.com/sfrenot/competence/blob/master/formation/crawl.coffee
-html.then((html) => {
+htmlPromise.then((html) => {
   const $ = cheerio.load(html);
   const urls = $('#block-system-main .content-offre-formations table a').map(function() {
     return $(this).attr('href');
   }).get()
   // console.log("urls:", urls);
 })
+
+// Créer une base de données
+const db = {}
+
+// Écrire dans la base de données
+
+db["code"] = {
+  a: 1
+  b: 2
+}
+
+// Afficher le contenu d'une variable en json
+console.log(JSON.stringify(db, null, 2));
