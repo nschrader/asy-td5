@@ -83,7 +83,11 @@ var ects = new Promise((resolve) => {
     var withHost = urls.map((url) => 'https://www.insa-lyon.fr' + url)
     //console.log("semesters:", withHost)
     var arraysInArrays = withHost.map((url) => crawlHtmlForUrls(url))
-    resolve(Array.concat(ugly))
+    //arraysInArrays.forEach((x) => x.then((y) => console.log(y)))
+    /*withHost.forEach((url) => {
+      crawlHtmlForUrls(url).then((x) => console.log(x))
+    })*/
+    resolve(Array.concat(arraysInArrays))
   })
 })
 //semesters.then((urls) => console.log("semesters:", urls))
