@@ -64,13 +64,34 @@ ts.start().then(() => {
 // Analyser du html
 // DOc : https://github.com/cheeriojs/cheerio
 // ou encore : https://github.com/sfrenot/competence/blob/master/formation/crawl.coffee
-getHtml('https://www.insa-lyon.fr/fr/formation/parcours/729/4/1').then((html) => {
-  const $ = cheerio.load(html);
-  const urls = $('#block-system-main .content-offre-formations table a').map(function() {
-    return $(this).attr('href');
-  }).get()
-  // console.log("urls:", urls);
+const crawlHtmlForUrls = (url) => {
+  return new Promise((resolve) => {
+    getHtml(url).then((html) => {
+      const $ = cheerio.load(html)
+      const urls = $('#block-system-main .content-offre-formations table a').map(function() {
+        return $(this).attr('href')
+      })
+      resolve(urls.get())
+    })
+  })
+}
+
+var semesters = crawlHtmlForUrls('https://www.insa-lyon.fr/fr/formation/diplomes/ING')
+
+var ects = new Promise((resolve) => {
+  semesters.then((urls) => {
+    var withHost = urls.map((url) => 'https://www.insa-lyon.fr' + url)
+    //console.log("semesters:", withHost)
+    var arraysInArrays = withHost.map((url) => crawlHtmlForUrls(url))
+    resolve(Array.concat(ugly))
+  })
 })
+//semesters.then((urls) => console.log("semesters:", urls))
+
+//var ects = crawlHtmlForUrls('https://www.insa-lyon.fr/fr/formation/parcours/729/4/1')
+ects.then((urls) => console.log("ects:", urls))
+
+
 
 // Créer une base de données
 const db = {}
